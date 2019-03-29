@@ -1,9 +1,8 @@
-package com.example.hospitaladmin;
+package com.example.mylifeline;
 
 /**
  * Created by Rishabh Gupta on 29-03-2019
  */
-
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -25,7 +24,7 @@ public class NavigationDashboard extends AppCompatActivity implements Navigation
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_navigation_drawer);
+        setContentView(R.layout.activity_dashboard_navigation);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -57,6 +56,11 @@ public class NavigationDashboard extends AppCompatActivity implements Navigation
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+//
+//        switch (menuItem.getItemId()){
+//            case R.id.nav_
         return false;
     }
+
 }
+

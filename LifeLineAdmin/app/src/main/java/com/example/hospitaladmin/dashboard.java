@@ -1,5 +1,9 @@
 package com.example.hospitaladmin;
 
+/**
+ * Created by Rishabh Gupta on 29-03-2019
+ */
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -32,7 +36,6 @@ public class dashboard extends AppCompatActivity implements NavigationView.OnNav
     final ArrayList<StaffListItem> staffListItems = new ArrayList<>();
     FirebaseDatabase db = FirebaseDatabase.getInstance();
     DatabaseReference myRootRef = db.getReference();
-    DatabaseReference userRef = myRootRef.child("hospital_lists").child(firebaseUser.getUid()).child("staff_lists");
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -42,6 +45,7 @@ public class dashboard extends AppCompatActivity implements NavigationView.OnNav
     FirebaseUser firebaseUser = mAuth.getCurrentUser();
     private CardView staffList;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    DatabaseReference userRef = myRootRef.child("hospital_lists").child(firebaseUser.getUid()).child("staff_lists");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

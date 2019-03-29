@@ -1,5 +1,4 @@
-package com.example.hospitaladmin;
-
+package com.example.mylifeline;
 /**
  * Created by Rishabh Gupta on 29-03-2019
  */
@@ -7,11 +6,11 @@ package com.example.hospitaladmin;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-public class StaffDashboard extends AppCompatActivity {
+public class Profile extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_staff_dashboard);
+        setContentView(R.layout.activity_profile);
     }
 }
