@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_dashboard"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Dashboard" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_accessibility_profile_24dp"
+            android:title="Profile" />
+        <item
+            android:id="@+id/nav_TrackHospitals"
+            android:icon="@drawable/ic_track_changes_track_24dp"
+            android:title="Track Hospitals" />
+        <item
+            android:id="@+id/nav_PreviousAppointments"
+            android:icon="@drawable/previous_24dp"
+            android:title="Previous Appointments" />
+        <item
+            android:id="@+id/nav_BookAppointments"
+            android:icon="@drawable/ic_favorite_border_black_24dp"
+            android:title="Book Appointments" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/ic_done_black_24dp"
+            android:title="About Lifeline" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+
+        </menu>
+    </item>
+
+</menu>

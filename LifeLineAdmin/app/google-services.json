@@ -1,0 +1,143 @@
+{
+  "project_info": {
+    "project_number": "642832383257",
+    "firebase_url": "https://hospitaladmin-42e41.firebaseio.com",
+    "project_id": "hospitaladmin-42e41",
+    "storage_bucket": "hospitaladmin-42e41.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642832383257:android:3936b7125b095ebf",
+        "android_client_info": {
+          "package_name": "com.example.hospitaladmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "642832383257-tbv5n24nsuas0n5rnhmrga7mrlfhi68u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hospitaladmin",
+            "certificate_hash": "988f743986d973ddcd0909d4918e2764fe4fc31f"
+          }
+        },
+        {
+          "client_id": "642832383257-7d1f24hhr7j9feik7smst8lqklenb8jp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSl5nTM_QF0u-JUxWPJrGfehzLpr8g5ig"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "642832383257-7d1f24hhr7j9feik7smst8lqklenb8jp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642832383257:android:9fe8119f51d79cd1",
+        "android_client_info": {
+          "package_name": "com.example.hospitalclient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "642832383257-9nen2unnmenus18jefnh01dm1e00li9q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hospitalclient",
+            "certificate_hash": "988f743986d973ddcd0909d4918e2764fe4fc31f"
+          }
+        },
+        {
+          "client_id": "642832383257-7d1f24hhr7j9feik7smst8lqklenb8jp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSl5nTM_QF0u-JUxWPJrGfehzLpr8g5ig"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "642832383257-7d1f24hhr7j9feik7smst8lqklenb8jp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642832383257:android:aae699208294cab8",
+        "android_client_info": {
+          "package_name": "com.example.mylifeline"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "642832383257-s54emvlipjjm1224lqckki314lhfpt3f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mylifeline",
+            "certificate_hash": "988f743986d973ddcd0909d4918e2764fe4fc31f"
+          }
+        },
+        {
+          "client_id": "642832383257-7d1f24hhr7j9feik7smst8lqklenb8jp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSl5nTM_QF0u-JUxWPJrGfehzLpr8g5ig"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "642832383257-7d1f24hhr7j9feik7smst8lqklenb8jp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
