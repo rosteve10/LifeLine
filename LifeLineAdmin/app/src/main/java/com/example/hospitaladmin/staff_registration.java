@@ -48,7 +48,7 @@ public class staff_registration extends AppCompatActivity {
     public TimePicker spinnerTime, spinnerTime1;
     StorageReference mStorage = FirebaseStorage.getInstance().getReference();
     ProgressDialog progressDialog;
-    String imageUrl, hospitalName;
+    String imageUrl, hospitalName = null;
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
     private DatabaseReference rootRef = db.getReference();
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -301,32 +301,32 @@ public class staff_registration extends AppCompatActivity {
             usermap2.put("startTime", staffStartTimeMon);
             usermap2.put("endTime", staffEndTimeMon);
             userRef1.child("monday").setValue(usermap2);
-            myUserRef1.child("sunday").setValue(usermap1);
+            myUserRef1.child("sunday").setValue(usermap2);
 
             usermap3.put("startTime", staffStartTimeTue);
             usermap3.put("endTime", staffEndTimeTue);
             userRef1.child("tuesday").setValue(usermap3);
-            myUserRef1.child("sunday").setValue(usermap1);
+            myUserRef1.child("sunday").setValue(usermap3);
 
             usermap4.put("startTime", staffStartTimeWed);
             usermap4.put("endTime", staffEndTimeWed);
             userRef1.child("wednesday").setValue(usermap4);
-            myUserRef1.child("sunday").setValue(usermap1);
+            myUserRef1.child("sunday").setValue(usermap4);
 
             usermap5.put("startTime", staffStartTimeThu);
             usermap5.put("endTime", staffEndTimeThu);
             userRef1.child("thursday").setValue(usermap5);
-            myUserRef1.child("sunday").setValue(usermap1);
+            myUserRef1.child("sunday").setValue(usermap5);
 
             usermap6.put("startTime", staffStartTimeFri);
             usermap6.put("endTime", staffEndTimeFri);
             userRef1.child("friday").setValue(usermap6);
-            myUserRef1.child("sunday").setValue(usermap1);
+            myUserRef1.child("sunday").setValue(usermap6);
 
             usermap7.put("startTime", staffStartTimeSat);
             usermap7.put("endTime", staffEndTimeSat);
             userRef1.child("saturday").setValue(usermap7);
-            myUserRef1.child("sunday").setValue(usermap1);
+            myUserRef1.child("sunday").setValue(usermap7);
 
             HashMap<String, String> userlogin = new HashMap<>();
             userlogin.put("email", myStaffEmail);

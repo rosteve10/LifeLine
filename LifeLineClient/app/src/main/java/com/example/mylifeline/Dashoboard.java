@@ -6,6 +6,7 @@ package com.example.mylifeline;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -22,6 +23,7 @@ import com.example.mylifeline.models.MainActivityViewModel;
 import com.example.mylifeline.utils.Utils;
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Collections;
@@ -52,6 +54,10 @@ public class Dashoboard extends AppCompatActivity implements View.OnClickListene
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigationView);
+        navigationView.setNavigationItemSelectedListener(this);
+
+
         initializeAll();
 
 
@@ -60,7 +66,6 @@ public class Dashoboard extends AppCompatActivity implements View.OnClickListene
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-//        FirebaseApp.initializeApp(this);
 
         if (requestCode == RC_SIGN_IN) {
             mViewModel.setIsSigningIn(false);
@@ -84,13 +89,14 @@ public class Dashoboard extends AppCompatActivity implements View.OnClickListene
                 .build();
 
         startActivityForResult(intent, RC_SIGN_IN);
+
         mViewModel.setIsSigningIn(true);
+
     }
 
     @Override
     public void onStart() {
         super.onStart();
-//        FirebaseApp.initializeApp(this);
 
 
         // Start sign in if necessary
@@ -98,7 +104,6 @@ public class Dashoboard extends AppCompatActivity implements View.OnClickListene
             startSignIn();
             return;
         }
-//        FirebaseApp.initializeApp(this);
 
     }
 
@@ -116,14 +121,31 @@ public class Dashoboard extends AppCompatActivity implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
+        String name ="";
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            // Name, email address, and profile photo Url
+             name = user.getDisplayName();
+            String email = user.getEmail();
+            Uri photoUrl = user.getPhotoUrl();
+
+            // Check if user's email is verified
+            boolean emailVerified = user.isEmailVerified();
+
+            // The user's ID, unique to the Firebase project. Do NOT use this value to
+            // authenticate with your backend server, if you have one. Use
+            // FirebaseUser.getIdToken() instead.
+            String uid = user.getUid();
+        }
         switch (v.getId()) {
             case R.id.profile_vw:
                 Intent intent = new Intent(Dashoboard.this, Profile.class);
                 startActivity(intent);
                 break;
             case R.id.previous_appointmet:
-//                Intent previousAppointmetIntent = new Intent(DashboardActivity.this, PreviousAppointmentActivity.class);
-//                startActivity(previousAppointmetIntent);
+                Intent previousAppointmetIntent = new Intent(Dashoboard.this, BookedAppointments.class);
+                previousAppointmetIntent.putExtra("name",name);
+                startActivity(previousAppointmetIntent);
                 break;
             case R.id.track_hospital:
                 Intent trackLioskIntent = new Intent(Dashoboard.this, HospitalLoacator.class);
@@ -148,6 +170,13 @@ public class Dashoboard extends AppCompatActivity implements View.OnClickListene
 
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(Dashoboard.this,MainActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (mToggle.onOptionsItemSelected(item)) {
             return true;
@@ -157,18 +186,14 @@ public class Dashoboard extends AppCompatActivity implements View.OnClickListene
                 AuthUI.getInstance().signOut(this);
                 Intent intent = new Intent(Dashoboard.this, login.class);
                 startActivity(intent);
+                finish();
                 break;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(Dashoboard.this, login.class);
-        startActivity(intent);
-        super.onBackPressed();
-    }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -177,9 +202,27 @@ public class Dashoboard extends AppCompatActivity implements View.OnClickListene
             case R.id.nav_dashboard:
                 Intent intent = new Intent(Dashoboard.this, Dashoboard.class);
                 startActivity(intent);
+                break;
             case R.id.nav_profile:
                 Intent intent1 = new Intent(Dashoboard.this, Profile.class);
                 startActivity(intent1);
+                break;
+            case R.id.nav_TrackHospitals:
+                Intent intent2 = new Intent(Dashoboard.this,HospitalLoacator.class);
+                startActivity(intent2);
+                break;
+            case R.id.nav_PreviousAppointments:
+                Intent intent3 = new Intent(Dashoboard.this,BookedAppointments.class);
+                startActivity(intent3);
+                break;
+            case R.id.nav_BookAppointments:
+                Intent intent4 = new Intent(Dashoboard.this,FindDoctor.class);
+                startActivity(intent4);
+                break;
+            case R.id.nav_manage:
+                Intent intent5 = new Intent(Dashoboard.this,AboutLifeLine.class);
+                startActivity(intent5);
+                break;
         }
 
         return false;

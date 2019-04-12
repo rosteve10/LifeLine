@@ -4,6 +4,7 @@ package com.example.hospitaladmin;
  * Created by Rishabh Gupta on 29-03-2019
  */
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -70,9 +71,13 @@ public class staff_login extends AppCompatActivity {
                 String password = dataSnapshot.child("password").getValue().toString();
                 if (myEmail.equals(email) && myPassword.equals(password)) {
                     Toast.makeText(staff_login.this, "Login Success", Toast.LENGTH_SHORT).show();
-                    return;
+                    Intent intent = new Intent(staff_login.this,StaffDashboard.class);
+                    intent.putExtra("staffEmail",myEmail);
+                    startActivity(intent);
+
                 } else {
-                    Toast.makeText(staff_login.this, "Login UnSuccess", Toast.LENGTH_SHORT).show();
+                    return;
+//                    Toast.makeText(staff_login.this, "Login UnSuccess", Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -112,5 +117,11 @@ public class staff_login extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

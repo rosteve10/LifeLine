@@ -17,8 +17,8 @@ import java.util.ArrayList;
 
 public class myAdapter extends RecyclerView.Adapter<myAdapter.ViewHolder> {
 
-    private ArrayList<HospitalListItem> mStaffList;
-    private android.content.Context ctx;
+    public ArrayList<HospitalListItem> mStaffList;
+    public android.content.Context ctx;
 
 
     public myAdapter(ArrayList<HospitalListItem> hospitalListItems, Context ctx) {

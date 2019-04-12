@@ -21,7 +21,7 @@
         <item
             android:id="@+id/nav_BookAppointments"
             android:icon="@drawable/ic_favorite_border_black_24dp"
-            android:title="Book Appointments" />
+            android:title="Schedule Appointments" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_done_black_24dp"

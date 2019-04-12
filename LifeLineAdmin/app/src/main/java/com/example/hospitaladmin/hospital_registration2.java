@@ -102,65 +102,65 @@ public class hospital_registration2 extends AppCompatActivity {
 
 
         FirebaseUser firebaseUser = mAuth.getCurrentUser();
-        if (firebaseUser != null) {
-            final ArrayList<String> arrayList = new ArrayList<>();
-
-            DatabaseReference myUserRef = userRef.child(firebaseUser.getUid());
-            myUserRef.addChildEventListener(new ChildEventListener() {
-                @Override
-                public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-
-                    if (dataSnapshot.hasChild("hospitalName")) {
-                        String hospitalName = dataSnapshot.child("hospitalName").getValue().toString();
-                        arrayList.add(hospitalName);
-                        Log.d(TAG, "hosName=" + dataSnapshot.child("hospitalName").getValue().toString());
-
-                    }
-//                    Log.d(TAG,"hosName="+dataSnapshot.child("hospitaName").getValue().toString());
-
-//                    hospitalAddress.setText(dataSnapshot.child("hospitalAddress").getValue().toString());
-//                    hospitalContact.setText(dataSnapshot.child("hospitalContact").getValue().toString());
-//                    hospitalOrg.setText(dataSnapshot.child("hospitalOrg").getValue().toString());
-//                    hospitalCity.setText(dataSnapshot.child("hospitalCity").getValue().toString());
-////                    hospitalState.setText(dataSnapshot.child("hospitalState").getValue().toString());
-//                    hospitalWebsite.setText(dataSnapshot.child("hospitalWebsite").getValue().toString());
-//                    hospitalRating.setText(dataSnapshot.child("hospitalRating").getValue().toString());
-//                    hospitalHours.setText(dataSnapshot.child("hospitalHours").getValue().toString());
-                    hospitalRegistration.setText("Update Details");
-                }
-
-                @Override
-                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-                }
-
-                @Override
-                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-                }
-
-                @Override
-                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            });
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                arrayList.forEach((new Consumer<String>() {
-                    @Override
-                    public void accept(String s) {
-                        hospitalName.setText(s);
-                    }
-                }));
-            }
-
-        }
+//        if (firebaseUser != null) {
+//            final ArrayList<String> arrayList = new ArrayList<>();
+//
+//            DatabaseReference myUserRef = userRef.child(firebaseUser.getUid());
+//            myUserRef.addChildEventListener(new ChildEventListener() {
+//                @Override
+//                public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+//
+//
+//                    if (dataSnapshot.hasChild("hospitalName")) {
+//                        String hospitalName = dataSnapshot.child("hospitalName").getValue().toString();
+//                        arrayList.add(hospitalName);
+//                        Log.d(TAG, "hosName=" + dataSnapshot.child("hospitalName").getValue().toString());
+//
+//                    }
+////                    Log.d(TAG,"hosName="+dataSnapshot.child("hospitaName").getValue().toString());
+//
+////                    hospitalAddress.setText(dataSnapshot.child("hospitalAddress").getValue().toString());
+////                    hospitalContact.setText(dataSnapshot.child("hospitalContact").getValue().toString());
+////                    hospitalOrg.setText(dataSnapshot.child("hospitalOrg").getValue().toString());
+////                    hospitalCity.setText(dataSnapshot.child("hospitalCity").getValue().toString());
+//////                    hospitalState.setText(dataSnapshot.child("hospitalState").getValue().toString());
+////                    hospitalWebsite.setText(dataSnapshot.child("hospitalWebsite").getValue().toString());
+////                    hospitalRating.setText(dataSnapshot.child("hospitalRating").getValue().toString());
+////                    hospitalHours.setText(dataSnapshot.child("hospitalHours").getValue().toString());
+//                    hospitalRegistration.setText("Update Details");
+//                }
+//
+//                @Override
+//                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+//
+//                }
+//
+//                @Override
+//                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+//
+//                }
+//
+//                @Override
+//                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+//
+//                }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//                }
+//            });
+//
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+//                arrayList.forEach((new Consumer<String>() {
+//                    @Override
+//                    public void accept(String s) {
+//                        hospitalName.setText(s);
+//                    }
+//                }));
+//            }
+//
+//        }
     }
 
     @Override

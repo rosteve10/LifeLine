@@ -69,8 +69,9 @@ public class dashboard extends AppCompatActivity implements NavigationView.OnNav
 //            }
 //        });
 
-        setRecyclerView();
+
         getData();
+        setRecyclerView();
 
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -99,7 +100,7 @@ public class dashboard extends AppCompatActivity implements NavigationView.OnNav
 
 
                 staffListItems.add(new StaffListItem(staffName, staffExpertise, staffImageUrl));
-
+                adapter.notifyDataSetChanged();
             }
 
 
@@ -131,7 +132,7 @@ public class dashboard extends AppCompatActivity implements NavigationView.OnNav
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
-        adapter = new Adapter(staffListItems);
+        adapter = new Adapter(staffListItems,this);
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
@@ -155,6 +156,7 @@ public class dashboard extends AppCompatActivity implements NavigationView.OnNav
                 FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(dashboard.this, MainActivity.class);
                 startActivity(intent);
+                finish();
                 break;
             case R.id.action_refresh:
                 finish();

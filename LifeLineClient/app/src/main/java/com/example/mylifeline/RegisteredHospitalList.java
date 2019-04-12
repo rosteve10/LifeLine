@@ -44,17 +44,59 @@ public class RegisteredHospitalList extends AppCompatActivity {
         setContentView(R.layout.activity_registered_hospital_list);
         intent = getIntent();
         getData();
-
         setRecyclerView();
         adapter.notifyDataSetChanged();
+
 
 
     }
 
     private void getData() {
+//        hospitalListItems.add(new HospitalListItem("rishabh","my nagar"));
+
         userRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+//                for(DataSnapshot dataSnapshot1 :dataSnapshot.getChildren()) {
+                    String name = dataSnapshot.child("details").child("hospitalName").getValue().toString();
+                    String address = dataSnapshot.child("details").child("hospitalAddress").getValue().toString();
+                    String city = dataSnapshot.child("details").child("hospitalCity").getValue().toString();
+
+                    Log.d(TAG, "test" + getIntent().getStringExtra("city"));
+                    Log.d(TAG, "test1" + city);
+                    String myCity = getIntent().getStringExtra("city");
+
+                    if (String.valueOf(city).toLowerCase().equals(String.valueOf(myCity).toLowerCase())) {
+                        hospitalListItems.add(new HospitalListItem(name, address));
+                        adapter.notifyDataSetChanged();
+//                    }
+
+                }
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+//                String name = dataSnapshot.child("details").child("hospitalName").getValue().toString();
+//                String address = dataSnapshot.child("details").child("hospitalAddress").getValue().toString();
+//                String city = dataSnapshot.child("details").child("hospitalCity").getValue().toString();
+//
+//                Log.d(TAG, "test" + getIntent().getStringExtra("city"));
+//                Log.d(TAG, "test1" + city);
+//                String myCity = getIntent().getStringExtra("city");
+//
+//                if (String.valueOf(city).toLowerCase().equals(String.valueOf(myCity).toLowerCase())) {
+//                    hospitalListItems.add(new HospitalListItem(name, address));
+//                }
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
                 String name = dataSnapshot.child("details").child("hospitalName").getValue().toString();
                 String address = dataSnapshot.child("details").child("hospitalAddress").getValue().toString();
@@ -67,23 +109,6 @@ public class RegisteredHospitalList extends AppCompatActivity {
                 if (String.valueOf(city).toLowerCase().equals(String.valueOf(myCity).toLowerCase())) {
                     hospitalListItems.add(new HospitalListItem(name, address));
                 }
-
-
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
             }
 
             @Override
@@ -95,10 +120,10 @@ public class RegisteredHospitalList extends AppCompatActivity {
 
     public void setRecyclerView() {
         recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
+//        recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         adapter = new myAdapter(hospitalListItems, this);
-
+        adapter.notifyDataSetChanged();
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
     }

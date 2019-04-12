@@ -1,23 +1,228 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".HospitalDetailsUpdate">
 
-    <ListView
-        android:id="@+id/listView"
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-</android.support.constraint.ConstraintLayout>
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/mytextView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:text="Hospital Name"
+                android:textColor="#757575"
+                android:textSize="16sp"
+                android:textStyle="normal|bold" />
+            <TextView
+                android:id="@+id/hospitalName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:padding="5dp"
+                android:text="Hospital Name"
+                android:textColor="?attr/editTextColor"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/mytextView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:text="Hospital Address"
+                android:textColor="#757575"
+                android:textSize="16sp"
+                android:textStyle="normal|bold" />
+
+            <TextView
+                android:id="@+id/hospitalAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Hospital Address"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/mytextView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:text="Hospital Contact"
+                android:textColor="#757575"
+                android:textSize="16sp"
+                android:textStyle="normal|bold" />
+
+
+            <TextView
+                android:id="@+id/hospitalContact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="12345678"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/mytextView1a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:text="Hospital Owner"
+                android:textSize="16sp"
+                android:textStyle="normal|bold" />
+
+
+            <TextView
+                android:id="@+id/hospitalOwner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Hospital Owner"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:text="City"
+                android:textColor="#757575"
+                android:textSize="16sp"
+                android:textStyle="normal|bold" />
+
+            <TextView
+                android:id="@+id/hospitalCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="city"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView1b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:text=" State"
+                android:textSize="16sp"
+                android:textStyle="normal|bold" />
+
+            <TextView
+                android:id="@+id/hospitalState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:padding="5dp"
+                android:text="M.p"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/textView1b2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:text="Website"
+                android:textSize="16sp"
+                android:textStyle="normal|bold" />
+
+            <TextView
+                android:id="@+id/hospitalWebsite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:padding="5dp"
+                android:text="www.hspital.com"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/textView1b1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:text="Rating"
+                android:textSize="16sp"
+                android:textStyle="normal|bold" />
+
+            <TextView
+                android:id="@+id/hospitalRating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:padding="5dp"
+                android:text="5.0"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/textView1b4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:text="Opening Hours"
+                android:textSize="16sp"
+                android:textStyle="normal|bold" />
+
+            <TextView
+                android:id="@+id/hospitalOpeningHours"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:padding="5dp"
+                android:text="24/7"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:background="#ffffffff"
+        android:orientation="horizontal"
+        android:layout_marginLeft="10dp">
+
+
+
+        <Button
+            android:id="@+id/hospitalbtnUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:text="Update"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+</FrameLayout>
