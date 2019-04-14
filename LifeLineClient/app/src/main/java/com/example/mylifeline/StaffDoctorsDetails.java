@@ -5,6 +5,7 @@ package com.example.mylifeline;
  */
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -27,7 +28,7 @@ public class StaffDoctorsDetails extends AppCompatActivity {
     FirebaseDatabase db = FirebaseDatabase.getInstance();
     DatabaseReference rootRef = db.getReference();
     private ImageView staffImage;
-    private TextView StaffName, StaffAddress, StaffPhone, StaffHours, StaffSpeciality, StaffDegrees, StaffCabin;
+    private TextView StaffName, StaffAddress, StaffPhone, StaffHours, StaffSpeciality, StaffDegrees, StaffCabin,StaffEmail;
     private Button staffBook, staffCall;
 
     @Override
@@ -35,7 +36,7 @@ public class StaffDoctorsDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_staff_doctors_details);
         final Intent intent = getIntent();
-        String staffMobile = intent.getStringExtra("StaffMobile");
+        final String staffMobile = intent.getStringExtra("StaffMobile");
         String hospitalName = intent.getStringExtra("hospitalName");
 
         DatabaseReference userRef = rootRef.child("hospital_staff_lists").child(hospitalName).child(staffMobile);
@@ -50,12 +51,24 @@ public class StaffDoctorsDetails extends AppCompatActivity {
         StaffSpeciality = findViewById(R.id.StaffSpeciality);
         StaffDegrees = findViewById(R.id.StaffDegrees);
         StaffCabin = findViewById(R.id.StaffCabin);
+        StaffEmail = findViewById(R.id.StaffEmail);
+
+        staffCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_DIAL);
+                i.setData(Uri.parse("tel:"+staffMobile));
+                startActivity(i);
+            }
+        });
+
 
         staffBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent1 = new Intent(StaffDoctorsDetails.this, Appointment.class);
-
+                intent1.putExtra("staffEmail",StaffEmail.getText().toString());
+                intent1.putExtra("staffName",StaffName.getText().toString());
                 startActivity(intent1);
             }
         });
@@ -69,7 +82,7 @@ public class StaffDoctorsDetails extends AppCompatActivity {
 //                String staffAdddress = dataSnapshot.child("staffAddress").getValue().toString();
                 String staffPhone = dataSnapshot.child("staffMobile").getValue().toString();
 //                String staffHours = dataSnapshot.child("staffWorking").getValue().toString();
-
+                String staffEmail = dataSnapshot.child("staffEmail").getValue().toString();
                 String staffSpeciality = dataSnapshot.child("staffExpertise").getValue().toString();
                 String staffDegrees = dataSnapshot.child("staffDegrees").getValue().toString();
                 String staffCabin = dataSnapshot.child("staffCabin").getValue().toString();
@@ -81,6 +94,7 @@ public class StaffDoctorsDetails extends AppCompatActivity {
                 StaffSpeciality.setText(staffSpeciality);
                 StaffCabin.setText(staffCabin);
                 StaffDegrees.setText(staffDegrees);
+                StaffEmail.setText(staffEmail);
 
             }
 

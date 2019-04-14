@@ -16,13 +16,6 @@ public class login extends AppCompatActivity {
     private SignInButton signInButton;
     private Button nearbyButton;
 
-    @Override
-    public void onBackPressed() {
-
-        Intent intent = new Intent(login.this, MainActivity.class);
-        startActivity(intent);
-        super.onBackPressed();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

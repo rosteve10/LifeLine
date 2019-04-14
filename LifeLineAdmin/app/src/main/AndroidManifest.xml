@@ -14,7 +14,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StaffDashboard"></activity>
+        <activity android:name=".StaffDetails"></activity>
+        <activity android:name=".ForgotPassword" />
+        <activity android:name=".PatientProfile" />
+        <activity
+            android:name=".AppointmentListDetails"
+            android:theme="@style/AppTheme1" />
+        <activity
+            android:name=".StaffDashboard"
+            android:theme="@style/AppTheme1" />
         <activity android:name=".HospitalDetailsUpdate" />
         <activity
             android:name=".LoginActivity"

@@ -59,7 +59,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="@dimen/dash_board_icon_height"
                             android:layout_margin="10dp"
-                            android:src="@drawable/previous_app_logo" />
+                            android:src="@drawable/bookedappointments" />
 
 
                     </LinearLayout>

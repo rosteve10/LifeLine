@@ -80,6 +80,14 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        forgotbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,ForgotPassword.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void onLogin() {
